@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e4e6eb;
+    color: #333;
+}
+
+h1 {
+    color: #007aff;
+}
+
+.chat-container {
+    /* 根据视口高度动态调整，最大高度为视口高度的 70%，最小高度为视口高度的 40% */
+    max-height: 70vh;
+    min-height: 40vh;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 70%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.sender {
+    background-color: #dcf8c6;
+    border: 1px solid #b3e67d;
+    align-self: flex-start;
+}
+
+.sender::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    bottom: 0;
+    border-width: 6px 6px 6px 0;
+    border-style: solid;
+    border-color: transparent #b3e67d transparent transparent;
+}
+
+.receiver {
+    background-color: #e4e6eb;
+    border: 1px solid #d1d5da;
+    align-self: flex-end;
+}
+
+.receiver::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    bottom: 0;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #d1d5da;
+}
+
+#messageInput1 {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #d1d5da;
+    border-radius: 8px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* 窗口等比例放大 2 倍 */
+body {
+    transform: scale(2);
+    transform-origin: top left;
+}
+
+/* 媒体查询部分，进一步优化不同尺寸下的高度 */
+@media screen and (max-width: 768px) {
+  .chat-container {
+        max-height: 60vh;
+        min-height: 30vh;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .chat-container {
+        max-height: 65vh;
+        min-height: 35vh;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+  .chat-container {
+        max-height: 70vh;
+        min-height: 40vh;
+    }
+}
